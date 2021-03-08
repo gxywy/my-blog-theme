@@ -38,7 +38,7 @@ $rounded = $this->options->rounded == 'rightAngle'?'rounded-0':'';  //  获取�
         <?php $this->options->headHTML(); ?>
     <?php endif; ?>
 </head>
-<body data-rounded="<?php echo $rounded; ?>">
+<body data-rounded="<?php echo $rounded; ?>" class="custom-background">
 <header class="sticky-top">
     <nav class="navbar navbar-expand-lg <?php echo $color['bar'] ?>">
         <div class="container">

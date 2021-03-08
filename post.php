@@ -28,7 +28,7 @@ $this->need('components/header.php');
         </nav>
     <?php endif; ?>
     <div class="row">
-        <div class="col-md-12 col-lg-8 col-sm-12 article-page content-area">
+        <div class="col-md-12 col-lg-12 col-sm-12 article-page content-area">
             <main class="<?php echo $rounded; ?>">
                 <header class="entry-header">
                     <h1 class="entry-title p-name" itemprop="name headline">
@@ -127,7 +127,7 @@ $this->need('components/header.php');
                 <?php $this->need('components/comments.php'); ?>
             </main>
         </div>
-        <?php $this->need('components/sidebar.php'); ?>
+        <!--<?php $this->need('components/sidebar.php'); ?>-->
     </div>
 </div>
 <div id="max-img" role="dialog">
@@ -177,3 +177,20 @@ $this->need('components/header.php');
     </div>
 </div>
 <?php $this->need('components/footer.php'); ?>
+<!--Markdown数学公式-->
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?   config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+      });
+</script>
