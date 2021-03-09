@@ -1,7 +1,7 @@
 <?php $color = color($this->options->color); ?>
 
 <?php while ($this->next()):  //  开始循环  ?>
-    <?php if ($posts->category != 'micro'): ?>
+    <?php if ($this->category != 'micro'): ?>
         <div class="post <?php echo $rounded; ?>">
             <?php if ($this->options->headerImage && in_array('home', $this->options->headerImage)): ?>
                 <?php $img = postImg($this); ?>

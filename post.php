@@ -30,7 +30,7 @@ $this->need('components/header.php');
     <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12 article-page content-area">
             <main class="<?php echo $rounded; ?>">
-                <?php if ($posts->category != 'micro'): ?>
+                <?php if ($this->category != 'micro'): ?>
                     <header class="entry-header">
                         <h1 class="entry-title p-name" itemprop="name headline">
                             <a itemprop="url" href="<?php $this->permalink(); ?>" rel="bookmark"><?php $this->title(); ?></a>
@@ -58,7 +58,7 @@ $this->need('components/header.php');
                         <span class="<?php echo $color['link']; ?>" data-toggle="tooltip" data-placement="top" tabindex="0" title="发布日期：<?php $this->date('Y年m月d日'); ?>"><?php $this->date('Y年m月d日'); ?></span>
                     </div>
                     <!--作者-->
-                    <?php if ($posts->category != 'micro'): ?>
+                    <?php if ($this->category != 'micro'): ?>
                         <div class="info">
                             <i class="icon-user icon <?php echo $color['link']; ?>" aria-hidden="true"></i>
                             <a class="<?php echo $color['link']; ?>" data-toggle="tooltip" data-placement="top" href="<?php $this->author->permalink(); ?>" title="作者：<?php $this->author(); ?>"><?php $this->author(); ?></a>
@@ -80,7 +80,7 @@ $this->need('components/header.php');
                         <?php $this->category(''); ?>
                     </div>
                     <!--标签-->
-                    <?php if ($posts->category != 'micro'): ?>
+                    <?php if ($this->category != 'micro'): ?>
                         <div class="info tags" data-color="<?php echo $color['link']; ?>">
                             <i class="icon-price-tags icon <?php echo $color['link']; ?>" aria-hidden="true"></i>
                             <?php $this->tags(' ', true, '暂无标签'); ?>
@@ -120,7 +120,7 @@ $this->need('components/header.php');
                     </div>
                 </article>
                 <!--上一篇和下一篇文章的导航-->
-                <?php if ($posts->category != 'micro'): ?>
+                <?php if ($this->category != 'micro'): ?>
                     <nav class="post-navigation navbar border-top row">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 previous">
                             <div>上一篇</div>

@@ -88,7 +88,7 @@ $components = explode(',', $components);
                     <?php $latestArticles = $this->widget('Widget_Contents_Post_Recent'); ?>
                     <?php $postSize = 0; ?>
                     <?php while ($latestArticles->next()): ?>
-                        <?php if ($posts->category != 'micro'): ?>
+                        <?php if ($latestArticles->category != 'micro'): ?>
                             <li class="border-bottom">
                                 <a target="<?php $this->options->sidebarLinkOpen(); ?>" class="<?php echo $color['link']; ?>" href="<?php $latestArticles->permalink(); ?>">
                                     <?php if ($this->options->headerImage && in_array('sidebarBlock', $this->options->headerImage)): ?>
