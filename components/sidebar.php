@@ -88,23 +88,25 @@ $components = explode(',', $components);
                     <?php $latestArticles = $this->widget('Widget_Contents_Post_Recent'); ?>
                     <?php $postSize = 0; ?>
                     <?php while ($latestArticles->next()): ?>
-                        <li class="border-bottom">
-                            <a target="<?php $this->options->sidebarLinkOpen(); ?>" class="<?php echo $color['link']; ?>" href="<?php $latestArticles->permalink(); ?>">
-                                <?php if ($this->options->headerImage && in_array('sidebarBlock', $this->options->headerImage)): ?>
-                                    <?php $img = postImg($latestArticles); ?>
-                                    <?php if ($img): ?>
-                                        <div class="article-img" style="background-image: url(<?php echo $img; ?>);" aria-label="<?php $latestArticles->title(); ?>的头图"></div>
+                        <?php if ($posts->category != 'micro'): ?>
+                            <li class="border-bottom">
+                                <a target="<?php $this->options->sidebarLinkOpen(); ?>" class="<?php echo $color['link']; ?>" href="<?php $latestArticles->permalink(); ?>">
+                                    <?php if ($this->options->headerImage && in_array('sidebarBlock', $this->options->headerImage)): ?>
+                                        <?php $img = postImg($latestArticles); ?>
+                                        <?php if ($img): ?>
+                                            <div class="article-img" style="background-image: url(<?php echo $img; ?>);" aria-label="<?php $latestArticles->title(); ?>的头图"></div>
+                                        <?php endif; ?>
                                     <?php endif; ?>
-                                <?php endif; ?>
-                                <p><?php $latestArticles->title(); ?></p>
-                            </a>
-                        </li>
-                        <?php
-                            $postSize ++;
-                            if ($postSize == $this->options->postsListSize) {
-                                break;
-                            }
-                        ?>
+                                    <p><?php $latestArticles->title(); ?></p>
+                                </a>
+                            </li>
+                            <?php
+                                $postSize ++;
+                                if ($postSize == $this->options->postsListSize) {
+                                    break;
+                                }
+                            ?>
+                        <?php endif; ?>
                     <?php endwhile; ?>
                 </ul>
             </section>

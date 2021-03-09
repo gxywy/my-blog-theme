@@ -30,23 +30,25 @@ $this->need('components/header.php');
     <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12 article-page content-area">
             <main class="<?php echo $rounded; ?>">
-                <header class="entry-header">
-                    <h1 class="entry-title p-name" itemprop="name headline">
-                        <a itemprop="url" href="<?php $this->permalink(); ?>" rel="bookmark"><?php $this->title(); ?></a>
-                    </h1>
-                </header>
-                <?php if ($this->options->headerImage && in_array('post', $this->options->headerImage)): ?>
-                    <?php $img = postImg($this); ?>
-                    <?php if ($img): ?>
-                        <div class="header-img border-top">
-                            <?php if ($this->options->headerImageProportion == 'not-fixed' or $this->options->headerImageProportion == 'post-page-fixed'): ?>
-                                <a target="<?php $this->options->listLinkOpen(); ?>" href="<?php $this->permalink(); ?>">
-                                    <img src="<?php echo $img; ?>" alt="<?php $this->title(); ?>的头图" style="background-color: <?php echo headerImageBgColor($this->options->headerImageBg); ?>;">
-                                </a>
-                            <?php else: ?>
-                                <a tabindex="-1" aria-hidden="true" href="<?php $this->permalink() ?>" aria-label="<?php $this->title() ?>的头图" style="background-image: url(<?php echo $img; ?>);background-color: <?php echo headerImageBgColor($this->options->headerImageBg); ?>;" class="fixed"></a>
-                            <?php endif; ?>
-                        </div>
+                <?php if ($posts->category != 'micro'): ?>
+                    <header class="entry-header">
+                        <h1 class="entry-title p-name" itemprop="name headline">
+                            <a itemprop="url" href="<?php $this->permalink(); ?>" rel="bookmark"><?php $this->title(); ?></a>
+                        </h1>
+                    </header>
+                    <?php if ($this->options->headerImage && in_array('post', $this->options->headerImage)): ?>
+                        <?php $img = postImg($this); ?>
+                        <?php if ($img): ?>
+                            <div class="header-img border-top">
+                                <?php if ($this->options->headerImageProportion == 'not-fixed' or $this->options->headerImageProportion == 'post-page-fixed'): ?>
+                                    <a target="<?php $this->options->listLinkOpen(); ?>" href="<?php $this->permalink(); ?>">
+                                        <img src="<?php echo $img; ?>" alt="<?php $this->title(); ?>的头图" style="background-color: <?php echo headerImageBgColor($this->options->headerImageBg); ?>;">
+                                    </a>
+                                <?php else: ?>
+                                    <a tabindex="-1" aria-hidden="true" href="<?php $this->permalink() ?>" aria-label="<?php $this->title() ?>的头图" style="background-image: url(<?php echo $img; ?>);background-color: <?php echo headerImageBgColor($this->options->headerImageBg); ?>;" class="fixed"></a>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
                     <?php endif; ?>
                 <?php endif; ?>
                 <div class="article-info clearfix border-bottom border-top" role="group" aria-label="文章信息">
@@ -56,10 +58,12 @@ $this->need('components/header.php');
                         <span class="<?php echo $color['link']; ?>" data-toggle="tooltip" data-placement="top" tabindex="0" title="发布日期：<?php $this->date('Y年m月d日'); ?>"><?php $this->date('Y年m月d日'); ?></span>
                     </div>
                     <!--作者-->
-                    <div class="info">
-                        <i class="icon-user icon <?php echo $color['link']; ?>" aria-hidden="true"></i>
-                        <a class="<?php echo $color['link']; ?>" data-toggle="tooltip" data-placement="top" href="<?php $this->author->permalink(); ?>" title="作者：<?php $this->author(); ?>"><?php $this->author(); ?></a>
-                    </div>
+                    <?php if ($posts->category != 'micro'): ?>
+                        <div class="info">
+                            <i class="icon-user icon <?php echo $color['link']; ?>" aria-hidden="true"></i>
+                            <a class="<?php echo $color['link']; ?>" data-toggle="tooltip" data-placement="top" href="<?php $this->author->permalink(); ?>" title="作者：<?php $this->author(); ?>"><?php $this->author(); ?></a>
+                        </div>
+                        <?php endif; ?>
                     <!--阅读量-->
                     <div class="info">
                         <i class="icon-eye icon <?php echo $color['link']; ?>" aria-hidden="true"></i>
@@ -76,10 +80,12 @@ $this->need('components/header.php');
                         <?php $this->category(''); ?>
                     </div>
                     <!--标签-->
-                    <div class="info tags" data-color="<?php echo $color['link']; ?>">
-                        <i class="icon-price-tags icon <?php echo $color['link']; ?>" aria-hidden="true"></i>
-                        <?php $this->tags(' ', true, '暂无标签'); ?>
-                    </div>
+                    <?php if ($posts->category != 'micro'): ?>
+                        <div class="info tags" data-color="<?php echo $color['link']; ?>">
+                            <i class="icon-price-tags icon <?php echo $color['link']; ?>" aria-hidden="true"></i>
+                            <?php $this->tags(' ', true, '暂无标签'); ?>
+                        </div>
+                    <?php endif; ?>
                     <?php if ($this->user->hasLogin()): ?>
                         <div class="info d-sm-none d-none d-md-inline d-lg-inline d-xl-inline">
                             <i class="icon icon-pencil <?php echo $color['link']; ?>"></i>
@@ -114,16 +120,18 @@ $this->need('components/header.php');
                     </div>
                 </article>
                 <!--上一篇和下一篇文章的导航-->
-                <nav class="post-navigation navbar border-top row">
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 previous">
-                        <div>上一篇</div>
-                        <?php $this->thePrev('%s','没有了'); ?>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 next">
-                        <div class="text-lg-right text-xl-right text-md-right">下一篇</div class="text-lg-right text-xl-right text-md-right">
-                        <div class="text-lg-right text-xl-right text-md-right next-box"><?php $this->theNext('%s','没有了'); ?></div>
-                    </div>
-                </nav>
+                <?php if ($posts->category != 'micro'): ?>
+                    <nav class="post-navigation navbar border-top row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 previous">
+                            <div>上一篇</div>
+                            <?php $this->thePrev('%s','没有了'); ?>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 next">
+                            <div class="text-lg-right text-xl-right text-md-right">下一篇</div class="text-lg-right text-xl-right text-md-right">
+                            <div class="text-lg-right text-xl-right text-md-right next-box"><?php $this->theNext('%s','没有了'); ?></div>
+                        </div>
+                    </nav>
+                <?php endif; ?>
                 <?php $this->need('components/comments.php'); ?>
             </main>
         </div>
