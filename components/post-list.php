@@ -1,7 +1,7 @@
 <?php $color = color($this->options->color); ?>
 
 <?php while ($this->next()):  //  开始循环  ?>
-    <?php if ($this->category != 'micro'): ?>
+    <!--使用CateFilter过滤分类-->
         <div class="post <?php echo $rounded; ?>">
             <?php if ($this->options->headerImage && in_array('home', $this->options->headerImage)): ?>
                 <?php $img = postImg($this); ?>
@@ -58,5 +58,4 @@
                 <?php endif; ?>
             </div>
         </div>
-    <?php endif; ?>
 <?php endwhile; ?>
