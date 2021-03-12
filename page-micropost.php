@@ -25,7 +25,7 @@ $this->need('components/header.php');
                                 <p><a href="<?php $posts->permalink() ?>" target="<?php $posts->options->listLinkOpen(); ?>" class="float-right d-sm-none d-none d-md-inline d-lg-inline d-xl-inline <?php echo $color['link']; ?>"><?php $posts->fields->summaryContent?$posts->fields->summaryContent():$posts->excerpt($posts->options->summary, '...'); ?></a></p>
                             </div>
                             <?php $img = getPostImg($posts); ?>
-                            <?php if ($img) ?>
+                            <?php if ($img): ?>
                                 <div class="post-cover col-xl-12">
                                     <div class="post-cover-inner">
                                         <img src="<?php echo $img; ?>" class="post-cover-img" alt="cover">
