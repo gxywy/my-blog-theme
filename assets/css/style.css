@@ -1,4 +1,18 @@
 
+header .navbar {
+    background-color: rgba(248, 249, 250, 0.97);
+}
+
+.container .article-list .post {
+    background-color: rgba(248, 249, 250, 0.9);
+}
+
+.sidebar section {
+    background-color: rgba(248, 249, 250, 0.97);
+}
+
+.archive main, .article-page main, .page main
+
 .post-cover-img {
     max-height: 320px;
     object-fit: cover;
