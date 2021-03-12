@@ -24,9 +24,7 @@ $this->need('components/header.php');
                         <?php $img = getPostImg($posts); ?>
                         <div class="post-cover col-xl-12">
                             <div class="post-cover-inner">
-                                <img src="<?php echo $img; ?>"
-                                    class="post-cover-img"
-                                    alt="cover">
+                                <img src="<?php echo $img; ?>" class="post-cover-img" alt="cover">
                             </div>
                         </div>
                     </div>
