@@ -41,7 +41,7 @@ $rounded = $this->options->rounded == 'rightAngle'?'rounded-0':'';  //  获取�
 </head>
 <body data-rounded="<?php echo $rounded; ?>" class="custom-background">
 <header class="sticky-top">
-    <nav class="navbar navbar-expand-lg" style="background-color: rgba(248, 249, 250, 0.97);"> <!-- /?php echo $color['bar'] ?>-->
+    <nav class="navbar navbar-expand-lg" <?php echo $color['bar'] ?> style="background-color: rgba(248, 249, 250, 0.97);">
         <div class="container">
             <a class="navbar-brand" href="<?php $this->options->siteUrl(); ?>" title="<?php $this->options->title(); ?> 首页"><?php $this->options->title(); ?></a>
             <button class="navbar-toggler border-0 px-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="导航菜单">

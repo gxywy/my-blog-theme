@@ -22,11 +22,11 @@ $this->need('components/header.php');
                     <div class="entry-summary">
                         <div class="row">
                             <div class="post-content-inner col-xl-12">
-                                <p><a href="<?php $posts->permalink() ?>" target="<?php $posts->options->listLinkOpen(); ?>" class="float-right d-sm-none d-none d-md-inline d-lg-inline d-xl-inline <?php echo $color['link']; ?>"><?php $posts->fields->summaryContent?$posts->fields->summaryContent():$posts->excerpt($posts->options->summary, '...'); ?></a></p>
+                                <p><a href="<?php $posts->permalink() ?>" target="<?php $posts->options->listLinkOpen(); ?>" class="<?php echo $color['link']; ?>"><?php $posts->fields->summaryContent?$posts->fields->summaryContent():$posts->excerpt($posts->options->summary, '...'); ?></a></p>
                             </div>
                             <?php $img = getPostImg($posts); ?>
-                            <?php if ($img): ?>
-                                <div class="post-cover col-xl-12">
+                            <?php if ($img = 'none'): ?>
+                                <div class="post-cover col-xl-8">
                                     <div class="post-cover-inner">
                                         <img src="<?php echo $img; ?>" class="post-cover-img" alt="cover">
                                     </div>
