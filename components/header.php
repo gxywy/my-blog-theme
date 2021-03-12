@@ -24,6 +24,7 @@ $rounded = $this->options->rounded == 'rightAngle'?'rounded-0':'';  //  获取�
     </title>
     <link rel="icon" href="<?php echo $this->options->logoUrl?$this->options->logoUrl:$this->options->siteUrl . 'favicon.ico'; ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style20201109.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.css'); ?>" type="text/css">
     <?php if ($this->is('post') && $this->fields->keywords): ?>
         <?php $this->header('keywords=' . $this->fields->keywords); ?>
     <?php else: ?>
@@ -39,8 +40,8 @@ $rounded = $this->options->rounded == 'rightAngle'?'rounded-0':'';  //  获取�
     <?php endif; ?>
 </head>
 <body data-rounded="<?php echo $rounded; ?>" class="custom-background">
-<header class="sticky-top" style="background-color: rgba(248, 249, 250, 0.97)">
-    <nav class="navbar navbar-expand-lg <?php echo $color['bar'] ?>">
+<header class="sticky-top">
+    <nav class="navbar navbar-expand-lg" style="background-color: rgba(248, 249, 250, 0.97);"> <!-- /?php echo $color['bar'] ?>-->
         <div class="container">
             <a class="navbar-brand" href="<?php $this->options->siteUrl(); ?>" title="<?php $this->options->title(); ?> 首页"><?php $this->options->title(); ?></a>
             <button class="navbar-toggler border-0 px-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="导航菜单">

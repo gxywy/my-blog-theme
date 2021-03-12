@@ -20,7 +20,15 @@ $this->need('components/header.php');
                 <?php if ($posts->category == 'micro'): ?>
                   <div class="post <?php echo $rounded; ?>">
                     <div class="entry-summary">
-                        <p><?php $posts->fields->summaryContent?$posts->fields->summaryContent():$posts->excerpt($posts->options->summary, '...'); ?></p>
+                        <p><a href="<?php $posts->permalink() ?>" target="<?php $posts->options->listLinkOpen(); ?>" class="float-right d-sm-none d-none d-md-inline d-lg-inline d-xl-inline <?php echo $color['link']; ?>"><?php $posts->fields->summaryContent?$posts->fields->summaryContent():$posts->excerpt($posts->options->summary, '...'); ?></a></p>
+                        <?php $img = getPostImg($posts); ?>
+                        <div class="post-cover col-xl-12">
+                            <div class="post-cover-inner">
+                                <img src="<?php echo $img; ?>"
+                                    class="post-cover-img"
+                                    alt="cover">
+                            </div>
+                        </div>
                     </div>
                     <div class="article-info clearfix border-top" role="group" aria-label="文章信息">
                         <!--时间-->
@@ -38,7 +46,7 @@ $this->need('components/header.php');
                             <i class="icon-bubbles2 icon <?php echo $color['link']; ?>" aria-hidden="true"></i>
                             <a class="<?php echo $color['link']; ?>" data-toggle="tooltip" data-placement="top" title="评论" href="<?php $posts->permalink() ?>#comments"><?php $posts->commentsNum('%d 评论'); ?></a>
                         </div>
-                        <a href="<?php $posts->permalink() ?>" target="<?php $posts->options->listLinkOpen(); ?>" class="float-right d-sm-none d-none d-md-inline d-lg-inline d-xl-inline <?php echo $color['link']; ?>">阅读评论</a>
+                        <a href="<?php $posts->permalink() ?>" target="<?php $posts->options->listLinkOpen(); ?>" class="float-right d-sm-none d-none d-md-inline d-lg-inline d-xl-inline <?php echo $color['link']; ?>">全文</a>
                         <?php if ($posts->user->hasLogin()): ?>
                             <a href="<?php echo $posts->options->siteUrl . 'admin/write-post.php?cid=' . $posts->cid; ?>" class="float-right mr-3 d-sm-none d-none d-md-inline d-lg-inline d-xl-inline <?php echo $color['link']; ?>">编辑</a>
                         <?php endif; ?>
