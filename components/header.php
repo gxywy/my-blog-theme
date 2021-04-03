@@ -25,6 +25,10 @@ $rounded = $this->options->rounded == 'rightAngle'?'rounded-0':'';  //  获取�
     <link rel="icon" href="<?php echo $this->options->logoUrl?$this->options->logoUrl:$this->options->siteUrl . 'favicon.ico'; ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style20201109.css'); ?>" type="text/css">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.css'); ?>" type="text/css">
+    <!--pace进度条-->
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/pace.css'); ?>">
+    <!--pace进度条-->
     <?php if ($this->is('post') && $this->fields->keywords): ?>
         <?php $this->header('keywords=' . $this->fields->keywords); ?>
     <?php else: ?>
