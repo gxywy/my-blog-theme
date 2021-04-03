@@ -15,7 +15,7 @@ $this->need('components/header.php');
         <div class="article-list col-md-12 col-lg-8 col-sm-12 content-area">
         <?php $color = color($this->options->color); ?>
         <!--来自 components/post-list.php -->
-            <?php $this->widget('Widget_Contents_Post_Recent', 'pageSize=6')->to($posts); ?>
+            <?php $this->widget('Widget_Contents_Post_Recent', 'pageSize=1000')->to($posts); ?>
             <?php while ($posts->next()):  //  开始循环  ?>
                 <?php if ($posts->category == 'micro'): ?>
                   <div class="post <?php echo $rounded; ?>">
@@ -28,7 +28,7 @@ $this->need('components/header.php');
                             <?php if ($img != 'none'): ?>
                                 <div class="post-cover col-xl-8">
                                     <div class="post-cover-inner">
-                                        <img src="<?php echo $img; ?>" class="post-cover-img" alt="cover">
+                                        <img src="<?php echo $img; ?>" loading="lazy" class="post-cover-img lazyload" alt="cover">
                                     </div>
                                 </div>
                             <?php endif; ?>
@@ -59,7 +59,10 @@ $this->need('components/header.php');
                 <?php endif; ?>
             <?php endwhile; ?>
             <!--结束-->
+            </nav>
         </div>
+
+
     
         <!-- 来自 sidebar.php -->
         <?php
