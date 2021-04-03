@@ -103,6 +103,13 @@ $this->need('components/header.php');
                             <span class="float-xl-left float-lg-left float-md-left d-block" data-toggle="tooltip" data-placement="top" tabindex="0" title="发布时间：<?php $this->date('Y年m月d日'); ?>">最后编辑：<?php echo date('Y年m月d日', $this->modified);?></span>
                         <?php endif; ?>
                         <?php if ($this->fields->articleCopyright != 'hide'): ?>
+                            <blockquote>
+                            <strong>本文作者：</strong>Microyu (除特别说明外)
+                            <br><br>
+                            <strong>本文链接：</strong><a target="_blank" href="<?php $this->permalink() ?>"><?php $this->permalink() ?></a>
+                            <br><br>
+                            <strong>版权声明：</strong>本博客文章采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>进行许可，请在转载时注明出处及本声明！
+                            </blockquote>
                             <span tabindex="0" data-toggle="tooltip" data-placement="top" title="本文为原创文章，版权归 <?php $this->options->title(); ?> 所有，转载请联系博主获得授权。" class="mt-1 mt-sm-1 mt-md-0 mt-lg-0 mt-lg-0 mt-xl-0 float-xl-right float-lg-right float-md-right d-block">©著作权归作者所有</span>
                         <?php endif; ?>
                     </div>

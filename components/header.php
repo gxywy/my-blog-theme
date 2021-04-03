@@ -3,6 +3,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $color = color($this->options->color);  //  获取颜色设置
 $rounded = $this->options->rounded == 'rightAngle'?'rounded-0':'';  //  获取元素风格设置
 ?>
+<!--加载进度条插件-->
+<?php Typecho_Plugin::factory('Process')->render(); ?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
