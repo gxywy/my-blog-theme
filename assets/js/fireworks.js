@@ -22,9 +22,6 @@ let pointerY = 0;
 
 // sky blue
 let colors = ["102, 167, 221", "62, 131, 225", "33, 78, 194"];
-if (CONFIG.fireworks.colors) {
-  colors = CONFIG.fireworks.colors;
-}
 
 const canvasEl = document.querySelector(".fireworks");
 // global ctx
