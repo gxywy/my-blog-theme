@@ -97,18 +97,20 @@ $this->need('components/header.php');
                 <article>
                     <div data-target="<?php $this->options->postLinkOpen(); ?>" data-color="<?php echo $color['link']; ?>" class="post-content">
                         <?php $this->options->atalog == 'show'?catalog($this->content):$this->content(); ?>
+                        <?php if ($this->options->modified == 'show'): ?>
+                            <hr class="content-copyright" style="margin-top:50px">
+                            <blockquote class="content-copyright" style="font-style:normal">
+                                <p class="content-copyright">版权属于：<?php $this->author(); ?> (除特别说明外)</p>
+                                <p class="content-copyright">本文链接：<a class="content-copyright text-secondary" href="<?php $this->permalink() ?>" target="_blank"><?php $this->permalink() ?></a></p>
+                                <p class="content-copyright">版权声明：本博客文章采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>进行许可，请在转载时注明出处及本声明！</p>
+                            </blockquote>
+                        <?php endif; ?>
                     </div>
                     <div class="clearfix">
                         <?php if ($this->options->modified == 'show'): ?>
                             <span class="float-xl-left float-lg-left float-md-left d-block" data-toggle="tooltip" data-placement="top" tabindex="0" title="发布时间：<?php $this->date('Y年m月d日'); ?>">最后编辑：<?php echo date('Y年m月d日', $this->modified);?></span>
                         <?php endif; ?>
                         <?php if ($this->fields->articleCopyright != 'hide'): ?>
-                            <hr class="content-copyright" style="margin-top:50px">
-                            <blockquote class="content-copyright" style="font-style:normal">
-                                <p class="content-copyright">版权属于：Microyu (除特别说明外)</p>
-                                <p class="content-copyright">本文链接：<a class="content-copyright text-secondary" href="<?php $this->permalink() ?>" target="_blank"><?php $this->permalink() ?></a></p>
-                                <p class="content-copyright">>版权声明：本博客文章采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>进行许可，请在转载时注明出处及本声明！</p>
-                            </blockquote>
                             <span tabindex="0" data-toggle="tooltip" data-placement="top" title="本文为原创文章，版权归 <?php $this->options->title(); ?> 所有，转载请联系博主获得授权。" class="mt-1 mt-sm-1 mt-md-0 mt-lg-0 mt-lg-0 mt-xl-0 float-xl-right float-lg-right float-md-right d-block">©著作权归作者所有</span>
                         <?php endif; ?>
                     </div>

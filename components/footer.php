@@ -23,7 +23,7 @@
 </script>
 <!---->
 <!--鼠标点击烟花效果-->
-<canvas id="fireworks" style="position:fixed;left:0;top:0;pointer-events:none;"></canvas>
+<canvas class="fireworks" id="fireworks" style="position:fixed;left:0;top:0;pointer-events:none;"></canvas>
 <script type="text/javascript" src="https://cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
 <script type='text/javascript' src="<?php $this->options->themeUrl('assets/js/fireworks.js'); ?>"></script> 
 <!---->
