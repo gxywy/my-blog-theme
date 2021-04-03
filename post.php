@@ -97,7 +97,7 @@ $this->need('components/header.php');
                 <article>
                     <div data-target="<?php $this->options->postLinkOpen(); ?>" data-color="<?php echo $color['link']; ?>" class="post-content">
                         <?php $this->options->atalog == 'show'?catalog($this->content):$this->content(); ?>
-                        <?php if ($this->options->modified == 'show'): ?>
+                        <?php if ($this->fields->articleCopyright != 'hide'): ?>
                             <hr class="content-copyright" style="margin-top:50px">
                             <blockquote class="content-copyright" style="font-style:normal">
                                 <p class="content-copyright">版权属于：<?php $this->author(); ?> (除特别说明外)</p>
