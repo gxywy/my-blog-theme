@@ -18,7 +18,7 @@
 
 7. Github项目面板
 
-8. 页面模块半透明/毛玻璃（待实现）
+8. 页面模块半透明/毛玻璃
 
 9. 页面加载进度条 ([pace](https://github.com/CodeByZach/pace))
 
