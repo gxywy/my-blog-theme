@@ -9,6 +9,18 @@ header .navbar {
     transition: 0.3s ease all;
 }
 
+.archives-list .archives .page-header {
+    background-color: rgb(255 255 255/85%);
+    backdrop-filter: saturate(400%) blur(30px);
+    transition: 0.3s ease all;
+}
+
+.archives-list .archives .post {
+    background-color: rgb(255 255 255/85%);
+    backdrop-filter: saturate(400%) blur(30px);
+    transition: 0.3s ease all;
+}
+
 .post:hover {
     -webkit-box-shadow: 0 22px 43px rgb(0 0 0 / 15%);
     -moz-box-shadow: 0 22px 43px rgba(0,0,0,0.15);
