@@ -4,13 +4,26 @@ header .navbar {
 }
 
 .container .article-list .post {
-    background-color: rgb(255 255 255 / 85%);
+    background-color: rgb(255 255 255/85%);
     backdrop-filter: saturate(400%) blur(30px);
+    transition: 0.3s ease all;
+}
+
+.post:hover {
+    -webkit-box-shadow: 0 22px 43px rgb(0 0 0 / 15%);
+    -moz-box-shadow: 0 22px 43px rgba(0,0,0,0.15);
+    box-shadow: 0 22px 43px rgb(0 0 0 / 15%);
+    -webkit-transform: translateY(-3px) scale(1.01);
+    -moz-transform: translateY(-3px) scale(1.01);
+    -ms-transform: translateY(-3px) scale(1.01);
+    -o-transform: translateY(-3px) scale(1.01);
+    transform: translateY(-3px) scale(1.01);
 }
 
 .sidebar section {
     background-color: rgb(255 255 255 / 85%);
     backdrop-filter: saturate(400%) blur(30px);
+    transition: 0.3s ease all;
 }
 
 .sidebar section:hover {
