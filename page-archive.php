@@ -40,19 +40,21 @@ $this->need('components/header.php');
                             $j = 0;
                             $output = '<div class="archives">';
                             while ($archives->next()) {
-                                $year_tmp = date('Y', $archives->created);
-                                $mon_tmp = date('m', $archives->created);
-                                $y = $year;
-                                $m = $mon;
-                                if ($year > $year_tmp || $mon > $mon_tmp) {
-                                    $output .= '</ul></div>';
+                                if ($archives->category != 'micro') {
+                                    $year_tmp = date('Y', $archives->created);
+                                    $mon_tmp = date('m', $archives->created);
+                                    $y = $year;
+                                    $m = $mon;
+                                    if ($year > $year_tmp || $mon > $mon_tmp) {
+                                        $output .= '</ul></div>';
+                                    }
+                                    if ($year != $year_tmp || $mon != $mon_tmp) {
+                                        $year = $year_tmp;
+                                        $mon = $mon_tmp;
+                                        $output .= '<div class="archives-item"><h2>' . date('Y年m月', $archives->created) . '</h2><ul class="archives_list" aria-label="' . date('Y年m月', $archives->created) . '">'; //输出年份
+                                    }
+                                    $output .= '<li>' . date('d日', $archives->created) . ' <a href="' . $archives->permalink . '">' . $archives->title . '</a></li>'; //输出文章
                                 }
-                                if ($year != $year_tmp || $mon != $mon_tmp) {
-                                    $year = $year_tmp;
-                                    $mon = $mon_tmp;
-                                    $output .= '<div class="archives-item"><h2>' . date('Y年m月', $archives->created) . '</h2><ul class="archives_list" aria-label="' . date('Y年m月', $archives->created) . '">'; //输出年份
-                                }
-                                $output .= '<li>' . date('d日', $archives->created) . ' <a href="' . $archives->permalink . '">' . $archives->title . '</a></li>'; //输出文章
                             }
                             $output .= '</ul></div></div>';
                             echo $output;

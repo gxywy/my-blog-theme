@@ -66,7 +66,7 @@ $rounded = $this->options->rounded == 'rightAngle'?'rounded-0':'';  //  获取�
                     </div>
                     <!--URL输入-->
                     <div class="col-lg-6 col-md-12 col-sm-12 col-12 form-group">
-                        <label for="url"<?php if ($this->options->commentsRequireURL): ?> class="required"<?php endif; ?>><?php _e('网站'); ?></label>
+                        <label for="url"<?php if ($this->options->commentsRequireURL): ?> class="required"<?php endif; ?>><?php _e('网站(选填)'); ?></label>
                         <input type="url" maxlength="64" name="url" id="url" class="text form-control <?php echo $rounded; ?>" placeholder="<?php _e('请输入您的网站或博客地址'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?>>
                     </div>
                 <?php endif; ?>
