@@ -235,5 +235,22 @@ $components = explode(',', $components);
                 </section>
             <?php endif; ?>
         <?php endif; ?>
+        <!--google侧边广告-->
+        <?php if ($this->options->links or $this->options->homeLinks && $this->is('index')): ?>
+            <section class="border <?php echo in_array('HideLinks', $sidebarM)?$hideClass:''; ?> <?php echo $rounded; ?>">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- 侧边广告 -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3727681055653027"
+                    data-ad-slot="2149802765"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </section>
+        <?php endif; ?>
+
     <?php endforeach;  ?>
 </div>

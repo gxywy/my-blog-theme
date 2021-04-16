@@ -97,6 +97,18 @@ $this->need('components/header.php');
                 <article>
                     <div data-target="<?php $this->options->postLinkOpen(); ?>" data-color="<?php echo $color['link']; ?>" class="post-content">
                         <?php $this->options->atalog == 'show'?catalog($this->content):$this->content(); ?>
+                        <!--google信息流广告-->
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle"
+                            style="display:block"
+                            data-ad-format="fluid"
+                            data-ad-layout-key="-gw-3+1f-3d+2z"
+                            data-ad-client="ca-pub-3727681055653027"
+                            data-ad-slot="8450421578"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                        <!--end-->
                         <?php if ($this->fields->articleCopyright != 'hide'): ?>
                             <hr class="content-copyright" style="margin-top:50px">
                             <blockquote class="content-copyright" style="font-style:normal">
