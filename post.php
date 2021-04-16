@@ -155,7 +155,6 @@ $this->need('components/header.php');
                 <?php $this->need('components/comments.php'); ?>
             </main>
         </div>
-        <!--《?php $this->need('components/sidebar.php'); ?>-->
     </div>
 </div>
 <div id="max-img" role="dialog">
