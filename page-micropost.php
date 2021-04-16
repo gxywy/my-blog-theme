@@ -124,4 +124,4 @@ $this->need('components/header.php');
         <!--结束-->
     </div>
 </div>
-
+<?php $this->need('components/footer.php'); ?>
