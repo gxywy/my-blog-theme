@@ -452,6 +452,45 @@ function getPostImg($archive) {
     }
 }
 
+//  获取文章的所有图片
+function getAllPostImg($archive) {
+
+    $img = array();
+    preg_match_all("/<img.*?src=\"(.*?)\".*?\/?>/i", $archive->content, $img);
+    if (count($img) > 0 && count($img[0]) > 0) {
+        return $img[1];
+    } else {
+        return 'none';
+    }
+}
+
+// 输出主页9宫格图片
+function ehco9gridPics($images)
+{
+    $length = count($images);
+    if ($length > 0) {
+        if ($length == 1) {
+            echo "<div class='post-cover-inner'><a class='post-cover-img-more' data-fancybox='gallery' href='$images[0]'><img src='$images[0]' class='post-cover-img lazyload' alt='no pic'></a></div>";
+        } else {
+            $more_img_flag = false;
+            if ($length > 9) { // 9宫格显示图片
+                $more_img_flag = true;
+                $length = 9;
+            }
+            echo "<div class='post-cover-inner-more post-cover-inner-auto-rows-$length'>";
+
+            for ($i = 0; $i < $length; $i++) {
+                if ($i == 8 && $more_img_flag) { // 9宫格最后一张
+                    echo "<div style='background-image:url($images[$i]);' class='post-cover-img-more' alt='cover'><div class='more-pic'>" . $length . "+</div></div>";
+                } else {
+                    echo "<a data-fancybox='gallery' href='$images[$i]'><img src='$images[$i]' class='post-cover-img-more lazyload' alt='no pic'></a>";
+                }
+            } 
+            echo "</div>";
+        }
+    }
+}
+
 //  根据文章内的标题生成目录
 function catalog($content) {
     $re = '#<h(\d)(.*?)>(.*?)</h\d>#im';

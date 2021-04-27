@@ -96,7 +96,11 @@ $this->need('components/header.php');
                 <!--文章内容-->
                 <article>
                     <div data-target="<?php $this->options->postLinkOpen(); ?>" data-color="<?php echo $color['link']; ?>" class="post-content">
-                        <?php $this->options->atalog == 'show'?catalog($this->content):$this->content(); ?>
+                    <?php
+                        $pattern = '/\<img.*?src\=\"(.*?)\"[^>]*>/i';
+                        $replacement = '<a href="$1" data-fancybox="gallery" /><img src="$1" alt="'.$this->title.'" title="点击放大图片"></a>';
+                        $content = preg_replace($pattern, $replacement, $this->content);
+                        echo $this->options->atalog == 'show'?catalog($content):$content; ?>
                         <!--google信息流广告-->
                         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                         <ins class="adsbygoogle"
@@ -155,26 +159,6 @@ $this->need('components/header.php');
                 <?php $this->need('components/comments.php'); ?>
             </main>
         </div>
-    </div>
-</div>
-<div id="max-img" role="dialog">
-    <img src="" alt="" class="shadow-lg">
-    <div class="btn-group" role="group" aria-label="图片工具栏" id="img-control">
-        <button type="button" class="btn btn-dark big" title="放大" aria-label="放大">
-            <i class="icon-zoom-in"></i>
-        </button>
-        <button type="button" class="btn btn-dark small" title="缩小" aria-label="缩小">
-            <i class="icon-zoom-out"></i>
-        </button>
-        <button type="button" class="btn btn-dark spin-left" title="左旋转90度" aria-label="左旋转90度">
-            <i class="icon-undo"></i>
-        </button>
-        <button type="button" class="btn btn-dark spin-right" title="右旋转90度" aria-label="右旋转90度">
-            <i class="icon-redo"></i>
-        </button>
-        <button type="button" class="btn btn-dark hide-img" title="关闭大图（ESC）" aria-label="关闭大图（ESC）">
-            <i class="icon-cancel-circle"></i>
-        </button>
     </div>
 </div>
 <div class="modal fade bd-example-modal-sm" id="share-box" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -14,13 +14,14 @@
         <i class="icon-arrow-up"></i>
     </button>
 <?php endif; ?>
-<script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/bundle20201109.js'); ?>"></script>
 <!--图片懒加载-->
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
 <script type="text/javascript">
-  $("img.lazyload").lazyload();
+  $("img.lazyload").lazyload({effect:"fadeIn"});
 </script>
+<!---->
+<!--fancybox-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <!---->
 <!--鼠标点击烟花效果-->
 <canvas class="fireworks" id="fireworks" style="position:fixed;left:0;top:0;pointer-events:none;"></canvas>

@@ -23,12 +23,23 @@ $rounded = $this->options->rounded == 'rightAngle'?'rounded-0':'';  //  获取�
         <?php echo $this->is('index')?'- ' . $this->options->tagline:''; ?>
     </title>
     <link rel="icon" href="<?php echo $this->options->logoUrl?$this->options->logoUrl:$this->options->siteUrl . 'favicon.ico'; ?>" type="image/x-icon">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style20201109.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/bootstrap.min.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/icon.css'); ?>" type="text/css">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/vs2015.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/mystyle.css'); ?>" type="text/css">
+    <script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/jquery-3.4.1.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/highlight.pack.js'); ?>"></script>
+    <script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/jquery.qrcode.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/app.js'); ?>"></script>
     <!--pace进度条-->
-    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/pace.css'); ?>">
     <!--pace进度条-->
+    <!--fancybox-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+    <!--fancybox-->
     <?php if ($this->is('post') && $this->fields->keywords): ?>
         <?php $this->header('keywords=' . $this->fields->keywords); ?>
     <?php else: ?>
