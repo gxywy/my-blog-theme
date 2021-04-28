@@ -49,7 +49,6 @@ header .navbar {
 }
 
 
-
 .post-cover-img {
     max-height: 320px;
     object-fit: cover;
@@ -61,6 +60,11 @@ header .navbar {
     height: 260px;
     margin: 0;
     width: fit-content;
+}
+
+.post-cover-img-more:hover {
+    opacity: .8;
+    cursor: pointer;
 }
 
 .post-cover-img-more {

@@ -14,12 +14,6 @@
         <i class="icon-arrow-up"></i>
     </button>
 <?php endif; ?>
-<!--图片懒加载-->
-<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
-<script type="text/javascript">
-  $("img.lazyload").lazyload({effect:"fadeIn"});
-</script>
-<!---->
 <!--fancybox-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <!---->

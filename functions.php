@@ -291,7 +291,18 @@ function isQQEmail($email) {
 //  获取QQ头像
 function QQAvatar($email, $name, $size) {
     $qq = str_replace('@qq.com', '', $email);  //  获取QQ号
-    $imgUrl = 'https://q2.qlogo.cn/headimg_dl?dst_uin=' . $qq . '&spec=' . $size;
+    $imgUrl = 'http://q1.qlogo.cn/g?b=qq&nk=' . $qq . '&s=' . $size;
+    echo '<img src="' . $imgUrl . '" alt="' . $name . '" class="avatar">';
+}
+
+//  获取V2EX头像
+function V2Avatar($email, $name, $size) {
+    if ($email) {
+        $email = md5($email);
+        $imgUrl =  "https://cdn.v2ex.com/gravatar/" . $email . "?&s=" . $size . "&d=retro";
+    } else {
+        $imgUrl =  "https://cdn.v2ex.com/gravatar/null?&s=" . $size . "&d=retro";
+    }
     echo '<img src="' . $imgUrl . '" alt="' . $name . '" class="avatar">';
 }
 
@@ -465,12 +476,12 @@ function getAllPostImg($archive) {
 }
 
 // 输出主页9宫格图片
-function ehco9gridPics($images)
+function ehco9gridPics($images, $loading, $postlink)
 {
     $length = count($images);
     if ($length > 0) {
         if ($length == 1) {
-            echo "<div class='post-cover-inner'><a class='post-cover-img-more' data-fancybox='gallery' href='$images[0]'><img src='$images[0]' class='post-cover-img lazyload' alt='no pic'></a></div>";
+            echo "<div class='post-cover-inner'><a class='post-cover-img-more' data-fancybox='gallery' href='$images[0]'><img src='$loading' data-src='$images[0]' class='post-cover-img lazyload' alt='no pic'></a></div>";
         } else {
             $more_img_flag = false;
             if ($length > 9) { // 9宫格显示图片
@@ -481,9 +492,9 @@ function ehco9gridPics($images)
 
             for ($i = 0; $i < $length; $i++) {
                 if ($i == 8 && $more_img_flag) { // 9宫格最后一张
-                    echo "<div style='background-image:url($images[$i]);' class='post-cover-img-more' alt='cover'><div class='more-pic'>" . $length . "+</div></div>";
+                    echo "<a href='$postlink'><div style='background-image:url($images[$i]);' class='post-cover-img-more' alt='cover'><div class='more-pic'>" . $length . "+</div></div></a>";
                 } else {
-                    echo "<a data-fancybox='gallery' href='$images[$i]'><img src='$images[$i]' class='post-cover-img-more lazyload' alt='no pic'></a>";
+                    echo "<a data-fancybox='gallery' href='$images[$i]'><img src='$loading' data-src='$images[$i]' class='post-cover-img-more lazyload' alt='no pic'></a>";
                 }
             } 
             echo "</div>";

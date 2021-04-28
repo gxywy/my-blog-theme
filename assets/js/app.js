@@ -1,8 +1,5 @@
 $(function () {
   var emoji = null;  //  emoji表情
-  var maxImg = false;  //  大图的状态
-  var imgDirection = 0;  //  图片方向
-  var imgWH = '';  //  记录图片的宽高
 
   //  给文章表格添加样式
   if ($('.post-content table').length) {
@@ -222,37 +219,6 @@ $(function () {
       } else {
         $('.to-top').addClass('d-none');  //  隐藏返回顶部按钮
       }
-    }
-  });
-
-  //  大图的关闭按钮按下回车
-  $('.hide-img').on('keypress', function (ev) {
-    if (ev.keyCode == 13) {
-      $('#max-img .hide-img').click();
-    }
-  });
-
-  //  全局快捷键
-  $(document).on('keyup', function (ev) {
-    //  如果按下的是 ESC 就关闭大图
-    if (ev.keyCode === 27 && maxImg) {
-      $('#max-img .hide-img').click();  //  关闭大图
-    }
-    //  如果按下的是 + 就放大图片
-    if (ev.keyCode === 107 && maxImg) {
-      $('#img-control .big').click();
-    }
-    //  如果按下的是 - 就缩小图片
-    if (ev.keyCode === 109 && maxImg) {
-      $('#img-control .small').click();
-    }
-    //  如果按下的是右方向键就跳转到下一页
-    if (ev.keyCode === 39 && $('.next .page-link').length) {
-      location.href = $('.next .page-link').attr('href');
-    }
-    //  如果按下的是左方向键就跳转到上一页
-    if (ev.keyCode === 37 && $('.prev .page-link').length) {
-      location.href = $('.prev .page-link').attr('href');
     }
   });
 

@@ -25,14 +25,22 @@ $this->need('components/header.php');
                                 <p><?php $posts->fields->summaryContent?$posts->fields->summaryContent():$posts->excerpt($posts->options->summary, '...'); ?></p>
                             </div>
                             <?php $img = getAllPostImg($posts); ?>
-                            <div class="post-cover col-xl-8">
-                            <?php 
-                                if ($img != 'none')
-                                {
-                                    ehco9gridPics($img);
-                                }
-                            ?>
-                            </div>
+                                <?php 
+                                    if ($img != 'none')
+                                    {
+                                        ob_start();
+                                        $this->options->themeUrl("assets/img/loading.gif");
+                                        $loading = ob_get_contents();
+                                        ob_end_clean();
+                                        ob_start();
+                                        $posts->permalink();
+                                        $permalink = ob_get_contents();
+                                        ob_end_clean();
+                                        echo '<div class="post-cover col-xl-8">';
+                                        ehco9gridPics($img,  $loading, $permalink);
+                                        echo '</div>';
+                                    }
+                                ?>
                         </div>
                     </div>
                     <div class="article-info clearfix border-top" role="group" aria-label="文章信息">

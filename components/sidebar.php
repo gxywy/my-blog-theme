@@ -122,7 +122,7 @@ $components = explode(',', $components);
                             if ($this->options->QQAvatar == 'on' && isQQEmail($comments->mail)) {
                                 QQAvatar($comments->mail, $comments->author, 40);
                             }else {
-                                $comments->gravatar('50', '');
+                                V2Avatar($comments->mail, $comments->author, 40);
                             }
                             if ($comments->type == 'pingback') {
                                 echo '<div class="pingback avatar">引用</div>';

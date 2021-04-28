@@ -97,8 +97,12 @@ $this->need('components/header.php');
                 <article>
                     <div data-target="<?php $this->options->postLinkOpen(); ?>" data-color="<?php echo $color['link']; ?>" class="post-content">
                     <?php
+                        ob_start();
+                        $this->options->themeUrl("assets/img/loading.gif");
+                        $loading = ob_get_contents();
+                        ob_end_clean();
                         $pattern = '/\<img.*?src\=\"(.*?)\"[^>]*>/i';
-                        $replacement = '<a href="$1" data-fancybox="gallery" /><img src="$1" alt="'.$this->title.'" title="点击放大图片"></a>';
+                        $replacement = '<a href="$1" data-fancybox="gallery" /><img src="' . $loading . '" data-src="$1" class="lazyload" alt="'.$this->title.'" title="点击放大图片"></a>';
                         $content = preg_replace($pattern, $replacement, $this->content);
                         echo $this->options->atalog == 'show'?catalog($content):$content; ?>
                         <!--google信息流广告-->
