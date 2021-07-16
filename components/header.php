@@ -30,7 +30,8 @@ $rounded = $this->options->rounded == 'rightAngle'?'rounded-0':'';  //  获取�
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/mystyle.css'); ?>" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@9.17.1/lib/highlight.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/highlight.js@9.17.1/lib/highlight.js"></script>-->
+	<script src="<?php $this->options->themeUrl('assets/js/highlight.pack.js'); ?>"></script>
     <script src="<?php $this->options->themeUrl('assets/js/jquery.qrcode.min.js'); ?>"></script>
     <script src="<?php $this->options->themeUrl('assets/js/app.js'); ?>"></script>
     <!--懒加载-->
